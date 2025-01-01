@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+#game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.meter {
+    --power: 0.30;
+    --target: 0.60;
+    --height: 200px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+    outline: 4px solid;
+}
+
+.meter__inner {
+    border: 1px solid;
+    width: 60px;
+    height: var(--height);
+    background-color: #666;
+    background-image: linear-gradient(to top,
+            hsl(330, 100%, 82%) 0%,
+            hsl(330, 100%, 71%) calc(var(--height) * var(--power)),
+            transparent calc(var(--height) * var(--power)));
+    position: relative;
+}
+
+.target {
+    position: absolute;
+    left: -4px;
+    right: -4px;
+    bottom: 0;
+    transform: translateY(calc(var(--height) * var(--target) * -1));
+    border-top: 4px dotted yellow;
+}
