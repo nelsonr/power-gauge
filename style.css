@@ -46,5 +46,5 @@ body {
     right: -4px;
     bottom: 0;
     transform: translateY(calc(var(--height) * var(--target) * -1));
-    border-top: 4px dotted yellow;
+    border-top: 4px solid yellow;
 }
