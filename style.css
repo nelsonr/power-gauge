@@ -21,16 +21,16 @@ body {
 .meter {
     --power: 0.30;
     --target: 0.60;
-    --height: 200px;
+    --height: 300px;
     overflow: hidden;
     position: relative;
     border-radius: 4px;
     outline: 4px solid;
+    outline-offset: 0;
 }
 
 .meter__inner {
-    border: 1px solid;
-    width: 60px;
+    aspect-ratio: 60 / 200;
     height: var(--height);
     background-color: #666;
     background-image: linear-gradient(to top,
@@ -46,5 +46,5 @@ body {
     right: -4px;
     bottom: 0;
     transform: translateY(calc(var(--height) * var(--target) * -1));
-    border-top: 4px solid yellow;
+    border-top: 6px solid yellow;
 }
