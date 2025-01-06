@@ -8,18 +8,19 @@ let hit = false;
 
 let prevTime = 0;
 let interval = 1000 / 60;
-let hitFrames = 8;
+let defaultHitFrames = 10;
+let hitFrames = defaultHitFrames;
 
 function onClick () {
     if (!hit) {
         power = power + 0.15;
         power = power >= 1.0 ? 1.0 : power;
-        power = power > target ? target + 0.01 : power;
+        power = power > target ? target : power;
     }
 }
 
 function update (dt) {
-    if (power > target) {
+    if (power >= target && !hit) {
         hit = true;
     }
 
@@ -34,7 +35,7 @@ function update (dt) {
         power = power <= 0.0 ? 0.0 : power;
 
         if (hit && power <= 0.40) {
-            hitFrames = 10;
+            hitFrames = defaultHitFrames;
             hit = false;
             target = Math.random() + 0.40;
             target = target >= 1.0 ? 0.9 : target;
